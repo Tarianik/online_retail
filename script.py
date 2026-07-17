@@ -1,0 +1,1 @@
+import pandas as pd; from sqlalchemy import create_engine; df = pd.read_csv('online_retail_II.csv'); engine = create_engine('postgresql://postgres:1234@localhost:5432/online_retail'); df.to_sql('stg', engine, if_exists='replace', index=False)

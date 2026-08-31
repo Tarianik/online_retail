@@ -4,8 +4,8 @@ FROM stg_valid
 WHERE customer_id IS NOT NULL
 ORDER BY customer_id, invoice_date DESC;
 
-INSERT INTO orders (invoice_no, customer_id, invoice_date)
-SELECT DISTINCT invoice_no, customer_id, invoice_date::timestamp
+INSERT INTO orders (invoice_no, customer_id, invoice_date, country)
+SELECT DISTINCT invoice_no, customer_id, invoice_date::timestamp, country
 FROM stg_valid
 WHERE invoice_no NOT IN (SELECT invoice_no FROM bad_invoices)
 ORDER BY invoice_no;

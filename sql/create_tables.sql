@@ -12,7 +12,8 @@ CREATE TABLE orders (
 	invoice_no VARCHAR(20) PRIMARY KEY,
 	invoice_date TIMESTAMP,
 	customer_id BIGINT REFERENCES customers(customer_id),
-	is_cancelled BOOLEAN GENERATED ALWAYS AS (LEFT(invoice_no, 1) = 'C') STORED
+	is_cancelled BOOLEAN GENERATED ALWAYS AS (LEFT(invoice_no, 1) = 'C') STORED,
+	country VARCHAR(60)
 );
 
 CREATE TABLE order_items (

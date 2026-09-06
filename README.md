@@ -131,8 +131,6 @@ SQL: [orders_by_client.sql](sql/metabase_widgets/orders_by_client.sql)
 
 SQL: [aov.sql](sql/metabase_widgets/aov.sql)
 
-![AOV](img/aov.png)
-
 <div style="text-align: center;">
   <img src="img/aov.png" alt="AOV" width="500">
 </div>

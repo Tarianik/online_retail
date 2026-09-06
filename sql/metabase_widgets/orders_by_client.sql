@@ -4,6 +4,7 @@ WITH first_purchase AS (
   FROM orders
   WHERE customer_id IS NOT NULL
     AND NOT is_cancelled
+    AND invoice_date < '2011-12-01'
   GROUP BY customer_id
 )
 SELECT DATE_TRUNC('month', o.invoice_date) AS MONTH,
@@ -16,6 +17,7 @@ SELECT DATE_TRUNC('month', o.invoice_date) AS MONTH,
 FROM orders o
   LEFT JOIN first_purchase fp ON fp.customer_id = o.customer_id
 WHERE NOT o.is_cancelled
+  AND invoice_date < '2011-12-01'
 GROUP BY MONTH,
   status
 ORDER BY MONTH,

@@ -10,8 +10,8 @@ CREATE TABLE products (
 
 CREATE TABLE orders (
     invoice_no VARCHAR(10) PRIMARY KEY,
-    customer_id INT REFERENCES customers(customer_id),
     invoice_date TIMESTAMP NOT NULL,
+    customer_id INT REFERENCES customers(customer_id),
     is_cancelled BOOLEAN GENERATED ALWAYS AS (LEFT(invoice_no, 1) = 'C') STORED,
     country VARCHAR(60) NOT NULL
 );

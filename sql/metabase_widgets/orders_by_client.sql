@@ -10,8 +10,8 @@ WITH first_purchase AS (
 SELECT DATE_TRUNC('month', o.invoice_date) AS MONTH,
   CASE
     WHEN o.customer_id IS NULL THEN 'Гости'
-    WHEN o.invoice_date = fp.first_date THEN 'Новые пользователи'
-    ELSE 'Вернувшиеся пользователи'
+    WHEN o.invoice_date = fp.first_date THEN 'Новые клиенты'
+    ELSE 'Вернувшиеся клиенты'
   END AS status,
   COUNT(*) AS orders
 FROM orders o
